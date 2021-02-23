@@ -12,6 +12,13 @@ img {
   border-radius: 20px;
 }
 
+#errorContainer {
+  display: none;
+  color: red;
+  font-size: 2rem;
+  justify-items: center;
+}
+
 #header { 
   display:flex;
   justify-content: space-evenly;
@@ -41,7 +48,12 @@ img {
   border-radius: 20px;
 }
 
-.imageHoverDiv {
+.titleSpan {
+  padding: .5rem;
+  font-weight: 700;
+}
+
+.petImageDiv {
   display: flex;
   background-size: 20rem 20rem;
   height: 20rem;
@@ -53,12 +65,26 @@ img {
   border-radius: 20px;
 }
 
-.imageHoverText {
+.petImageDivSelected {
+  display: flex;
+  background-size: 20rem 20rem;
+  height: 20rem;
+  width: 20rem;
+  background-repeat: no-repeat;
+  border-style: solid;
+  border-width: thick;
+  border-color: lightgreen;
+  border-radius: 20px;
+}
+
+.petImageText {
   font-size: 2rem;
 }
 
-#downloadButton {
+.downloadButtonStyle {
   all: unset;
+  background-color:rgb(69, 177, 204);
+  cursor: pointer;
   border-radius: 20px;
   height: 4rem;
   width: 15rem;
@@ -66,16 +92,43 @@ img {
   font-weight: 700;
   color: white;
   text-align: center;
-  background-color:rgb(69, 177, 204);
   box-shadow: rgb(41, 47, 53) 2px 2px; 
 }
 
-#downloadButton:hover {
+.downloadButtonDisabled {
+  all: unset;
+  background-color: gray;
+  cursor: not-allowed;
+  border-radius: 20px;
+  height: 4rem;
+  width: 15rem;
+  padding: 1rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  box-shadow: rgb(41, 47, 53) 2px 2px; 
+}
+
+.downloadButtonStyle:hover {
   background-color: orange;
   color: black
 }
 
-.titleSpan {
-  padding: .5rem;
-  font-weight: 700;
+.backToTopContainer {
+  display : flex;
+  justify-content: flex-end;
+  padding: 2rem;
+  margin-right: 4rem;
+}
+
+.backToTopButton {
+  all: unset;
+  cursor: pointer;
+  box-shadow: rgb(41, 47, 53) 2px 2px; 
+  text-align: center;
+  background-color: orange;
+  color: black;
+  width: 14rem;
+  height: 4rem;
+  border-radius: 20px;
 }
