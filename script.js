@@ -58,6 +58,7 @@ async function createPetSubItem(item){
 
   const downloadButtonEle = document.getElementById("downloadButton")
   downloadButtonEle.style.backgroundColor = "gray"
+  downloadButtonEle.style.cursor = "not-allowed"
   imageHoverDiv.onclick = async () => {
     if(imageHoverDiv.style.borderColor === "lightgreen"){
       imageHoverDiv.style.borderColor = "white"
@@ -72,10 +73,12 @@ async function createPetSubItem(item){
     }
     if(imagesToDownload.length === 0){
       downloadButtonEle.style.backgroundColor = "gray"
+      downloadButtonEle.style.cursor = "not-allowed"
       downloadButtonEle.innerText = "Select images to download"
     }else{
       downloadButtonEle.innerText = `Download ${imagesToDownload.length} images`
       downloadButtonEle.style.backgroundColor = "rgb(69, 177, 204)"
+      downloadButtonEle.style.cursor = "pointer"
       downloadButtonEle.onclick = () => {
         imagesToDownload.forEach( async urlItem => {
           const anchor = document.createElement("a")
