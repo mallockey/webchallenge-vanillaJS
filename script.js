@@ -82,12 +82,12 @@ function createPetSubItem(item){
   downloadButtonEle.className = "downloadButtonDisabled"
 
   petImageDiv.onclick = async () => {
-    if(petImageDiv.className === "petImageDivSelected"){
-      petImageDiv.className = "petImageDiv"
+    if(petSubItemDiv.className === "petSubItemSelected"){
+      petSubItemDiv.className = 'petSubItem'
       petImageText.innerText = "Click to select"
       imagesToDownload = imagesToDownload.filter(downloadObj => downloadObj.url !== item.url) //Remove unselected URL
     }else{
-      petImageDiv.className = "petImageDivSelected"
+      petSubItemDiv.className = 'petSubItemSelected'
       petImageText.innerText = "Click to unselect"
       imagesToDownload.push({
         title : item.title,
