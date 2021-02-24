@@ -1,4 +1,4 @@
-window.onload = async function fetchData(){
+async function fetchData(){
   let data = null
 
   try{
@@ -17,7 +17,42 @@ window.onload = async function fetchData(){
     createPetSubItem(item)
   })
 
-  if(document.getElementById("errorContainer").style !== "block"){ //Only add back to top button if there is data
+  createBackToTopBtn()
+}
+
+fetchData()
+
+async function convertImageToBlob(url){ //Helper function to turn the image from the URL into a blob
+  const imageData = await fetch(url)
+  return await imageData.blob()
+}
+
+function handleSearchChange(event){
+  let petItems = document.getElementsByClassName("petSubItem")
+  petItemsArr = Array.from(petItems)
+
+  let searchResults = petItemsArr.filter((item) => 
+    item.getAttribute("searchTerm").toLowerCase().includes(event.target.value.toLowerCase())
+  )
+
+  for(let i = 0; i < petItemsArr.length; i++){
+    if(searchResults.includes(petItemsArr[i])){
+      petItemsArr[i].style.display = "flex"
+    }else{
+      petItemsArr[i].style.display = "none"
+    }
+  }
+
+  let noItemsFound = document.getElementById("noSearchResults")
+  if(searchResults.length === 0){
+    noItemsFound.style.display = "flex"
+  }else{
+    noItemsFound.style.display = "none"
+  }
+}
+
+function createBackToTopBtn(){
+  if(document.getElementById("errorContainer").style.display !== 'block'){ //Only add back to top button if there is data
     const backToTopEle = document.createElement("button")
     const divEle = document.createElement("div")
     divEle.className = "backToTopContainer"
@@ -27,11 +62,6 @@ window.onload = async function fetchData(){
     divEle.appendChild(backToTopEle)
     document.body.appendChild(divEle)
   }
-}
-
-async function convertImageToBlob(url){ //Helper function to turn the image from the URL into a blob
-  const imageData = await fetch(url)
-  return await imageData.blob()
 }
 
 function get_url_extension( url ) { //Get the file extension of the URL
@@ -44,6 +74,7 @@ function createPetSubItem(item){
   const petContainerEle = document.getElementById("petsContainer")
   const petSubItemDiv = document.createElement("div")
   petSubItemDiv.className = "petSubItem"
+  petSubItemDiv.setAttribute("searchTerm",item.title)
 
   const titleSpan = document.createElement("span")
   titleSpan.className = "titleSpan"
@@ -107,6 +138,11 @@ function createPetSubItem(item){
           anchor.download = `${urlItem.title}.${get_url_extension(urlItem.url)}`
           anchor.click()
         })
+        let petSubItems = document.getElementsByClassName("petSubItemSelected") //Remove the selections after download
+        let tmpArr = Array.from(petSubItems)
+        for(let i = 0; i < tmpArr.length; i++){
+          tmpArr[i].className = "petSubItem"
+        }
       }
     }
   }

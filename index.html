@@ -10,10 +10,14 @@
   <body>
     <div id="header">
       <img src="logo.png" id="headerLogo" />
-      <button id="downloadButton" class="downloadButtonStyle" type="button">Select images to download</button>
+      <div id="subHeader">
+        <button id="downloadButton" class="downloadButtonStyle" type="button">Select images to download</button>
+        <input type="text" oninput="handleSearchChange(event)" placeholder="Search by pet name" />
+      </div>
     </div>
   <div id="petsContainer">
     <div id="errorContainer"></div>
+    <div id="noSearchResults">There are no pets by that name, try refining your search</div>
   </div>
   </body>
 </html>
