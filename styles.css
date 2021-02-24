@@ -12,16 +12,16 @@ input {
   box-shadow: none;
   font-size: medium;
   color: black;
-  width: 15rem;
-  border-radius: 10px;
+  width: 20rem;
+  border-radius: 1rem;
   text-align: center;
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 img {
   height: 20rem;
   width: 20rem;
-  border-radius: 20px;
+  border-radius: 1rem;
 }
 
 #errorContainer {
@@ -73,7 +73,7 @@ img {
   height: auto;
   width: 20rem;
   padding: 1rem 1rem 2rem 1rem;
-  border-radius: 20px;
+  border-radius: 1rem;
 }
 
 .petSubItemSelected {
@@ -85,7 +85,7 @@ img {
   width: 20rem;
   padding: 1rem 1rem 2rem 1rem;
   background-color: orange;
-  border-radius: 20px;
+  border-radius: 1rem;
 }
 
 .titleSpan {
@@ -102,7 +102,7 @@ img {
   border-style: solid;
   border-color: white;
   border-width: thick;
-  border-radius: 20px;
+  border-radius: 1rem;
 }
 
 .petImageDivSelected {
@@ -114,7 +114,7 @@ img {
   border-style: solid;
   border-width: thick;
   border-color: lightgreen;
-  border-radius: 20px;
+  border-radius: 1rem;
 }
 
 .petImageText {
@@ -125,7 +125,7 @@ img {
   all: unset;
   background-color:rgb(69, 177, 204);
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 1rem;
   height: 4rem;
   width: 15rem;
   padding: 1rem;
@@ -139,7 +139,7 @@ img {
   all: unset;
   background-color: gray;
   cursor: not-allowed;
-  border-radius: 20px;
+  border-radius: 1rem;
   height: 4rem;
   width: 15rem;
   padding: 1rem;
@@ -170,7 +170,7 @@ img {
   color: black;
   width: 14rem;
   height: 4rem;
-  border-radius: 20px;
+  border-radius: 1rem;
 }
 
 @media only screen and (max-width: 600px) {
@@ -180,11 +180,19 @@ img {
   .downloadButtonStyle {
     width: 8rem;
   }
+  .downloadButtonDisabled {
+    width: 8rem;
+  }
+  input {
+    width: 8rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
   .petImageDiv {
     width: 15rem;
     border-radius: 'none';
   }
-  .petSubItem { 
+  .petSubItem {
     width: full;
   }
 }
