@@ -144,3 +144,19 @@ img {
   height: 4rem;
   border-radius: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+  #petsContainer {
+    justify-content: center;
+  }
+  .downloadButtonStyle {
+    width: 8rem;
+  }
+  .petImageDiv {
+    width: 15rem;
+    border-radius: 'none';
+  }
+  .petSubItem { 
+    width: full;
+  }
+}

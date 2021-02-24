@@ -27,7 +27,6 @@ window.onload = async function fetchData(){
     divEle.appendChild(backToTopEle)
     document.body.appendChild(divEle)
   }
-
 }
 
 async function convertImageToBlob(url){ //Helper function to turn the image from the URL into a blob
