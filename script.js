@@ -28,8 +28,8 @@ async function convertImageToBlob(url){ //Helper function to turn the image from
 }
 
 function handleSearchChange(event){
-  let petItems = document.getElementsByClassName("petSubItem")
-  petItemsArr = Array.from(petItems)
+  let petItems = document.querySelectorAll(".petSubItem, .petSubItemSelected")
+  let petItemsArr = Array.from(petItems)
 
   let searchResults = petItemsArr.filter((item) => 
     item.getAttribute("searchTerm").toLowerCase().includes(event.target.value.toLowerCase())
@@ -51,6 +51,7 @@ function handleSearchChange(event){
   }
   if(searchResults.length === 0){
     noItemsFound.style.display = "flex"
+    noItemsFound.style.justifyContent = "center"
   }else{
     noItemsFound.style.display = "none"
   }
@@ -117,7 +118,7 @@ function createPetSubItem(item){
   const downloadButtonEle = document.getElementById("downloadButton")
   downloadButtonEle.className = "downloadButtonDisabled"
 
-  petImageDiv.onclick = async () => {
+  petSubItemDiv.onclick = async () => {
     if(petSubItemDiv.className === "petSubItemSelected"){
       petSubItemDiv.className = 'petSubItem'
       petImageText.innerText = "Click to select"
@@ -149,6 +150,9 @@ function createPetSubItem(item){
         for(let i = 0; i < tmpArr.length; i++){
           tmpArr[i].className = "petSubItem"
         }
+        imagesToDownload = []
+        downloadButtonEle.className = "downloadButtonDisabled"
+        downloadButtonEle.innerText = "Select images to download"
       }
     }
   }
