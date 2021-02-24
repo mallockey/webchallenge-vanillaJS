@@ -177,21 +177,26 @@ img {
   #petsContainer {
     justify-content: center;
   }
+
   .downloadButtonStyle {
     width: 8rem;
   }
+
   .downloadButtonDisabled {
     width: 8rem;
   }
+
   input {
     width: 8rem;
     padding-right: 1.5rem;
     padding-left: 1.5rem;
   }
+
   .petImageDiv {
     width: 15rem;
     border-radius: 'none';
   }
+
   .petSubItem {
     width: full;
   }
