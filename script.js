@@ -44,6 +44,11 @@ function handleSearchChange(event){
   }
 
   let noItemsFound = document.getElementById("noSearchResults")
+  if(searchResults.length < 3){
+    document.getElementById("backToTopContainerID").style.display = "none"
+  }else{
+    document.getElementById("backToTopContainerID").style.display = "flex"
+  }
   if(searchResults.length === 0){
     noItemsFound.style.display = "flex"
   }else{
@@ -55,6 +60,7 @@ function createBackToTopBtn(){
   if(document.getElementById("errorContainer").style.display !== 'block'){ //Only add back to top button if there is data
     const backToTopEle = document.createElement("button")
     const divEle = document.createElement("div")
+    divEle.id = "backToTopContainerID"
     divEle.className = "backToTopContainer"
     backToTopEle.innerText = "Back to top"
     backToTopEle.className = "backToTopButton"
